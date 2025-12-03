@@ -1,0 +1,9 @@
+function App() {
+  return (
+    <div>
+      <MenuManagement />
+    </div>
+  );
+}
+
+export default App;

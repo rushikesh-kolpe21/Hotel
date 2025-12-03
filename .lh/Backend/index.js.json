@@ -1,0 +1,38 @@
+{
+    "sourceFile": "Backend/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1764759661545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764760280449,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n const app = express();\r\n const cors = require('cors');\r\n const bodyParser = require('body-parser');\r\n \r\n-const mongoose = require('mongoose');\r\n+const mongoose = require('mongoose'); \r\n \r\n const PORT = process.env.PORT || 5000;\r\n \r\n require('dotenv').config(); // Load environment variables\r\n"
+                },
+                {
+                    "date": 1764763786520,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,13 +3,19 @@\n const cors = require('cors');\r\n const bodyParser = require('body-parser');\r\n \r\n const mongoose = require('mongoose'); \r\n-\r\n const PORT = process.env.PORT || 5000;\r\n \r\n require('dotenv').config(); // Load environment variables\r\n require('./Models/dbConn'); // only checking connection\r\n \r\n+app.use(cors());\r\n+app.use(bodyParser.json());\r\n+\r\n+\r\n+const menuRouter = require('./Routers/Menu');\r\n+app.use(\"/api/menu\", menuRouter);\r\n+\r\n app.listen(PORT, () => {\r\n     console.log(`Server is running on port ${PORT}`);\r\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764770690609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \r\n require('dotenv').config(); // Load environment variables\r\n require('./Models/dbConn'); // only checking connection\r\n \r\n-app.use(cors());\r\n+app.use(cors()); // \r\n app.use(bodyParser.json());\r\n \r\n \r\n const menuRouter = require('./Routers/Menu');\r\n"
+                },
+                {
+                    "date": 1764772190021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,10 @@\n \r\n require('dotenv').config(); // Load environment variables\r\n require('./Models/dbConn'); // only checking connection\r\n \r\n-app.use(cors()); // \r\n-app.use(bodyParser.json());\r\n+app.use(cors()); // for cross origin requests\r\n+app.use(bodyParser.json()); // to parse JSON bodies\r\n \r\n \r\n const menuRouter = require('./Routers/Menu');\r\n app.use(\"/api/menu\", menuRouter);\r\n"
+                },
+                {
+                    "date": 1764775240776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \r\n app.use(cors()); // for cross origin requests\r\n app.use(bodyParser.json()); // to parse JSON bodies\r\n \r\n-\r\n+// Menu Router\r\n const menuRouter = require('./Routers/Menu');\r\n app.use(\"/api/menu\", menuRouter);\r\n \r\n app.listen(PORT, () => {\r\n"
+                }
+            ],
+            "date": 1764759661545,
+            "name": "Commit-0",
+            "content": "const express = require('express');\r\nconst app = express();\r\nconst cors = require('cors');\r\nconst bodyParser = require('body-parser');\r\n\r\nconst mongoose = require('mongoose');\r\n\r\nconst PORT = process.env.PORT || 5000;\r\n\r\nrequire('dotenv').config(); // Load environment variables\r\nrequire('./Models/dbConn'); // only checking connection\r\n\r\napp.listen(PORT, () => {\r\n    console.log(`Server is running on port ${PORT}`);\r\n});"
+        }
+    ]
+}

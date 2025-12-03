@@ -1,0 +1,38 @@
+{
+    "sourceFile": "Backend/Routers/Menu.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1764763454794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764763631231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const express = require(\"express\");\r\n const router = express.Router();\r\n-const Menu = require(\"../models/Menu\");\r\n+const Menu = require(\"../Models/Menu\");\r\n \r\n // GET all menu\r\n router.get(\"/\", async (req, res) => {\r\n   try {\r\n"
+                },
+                {
+                    "date": 1764764363942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,12 +14,12 @@\n \r\n // ADD menu item (admin)\r\n router.post(\"/\", async (req, res) => {\r\n   try {\r\n-    const { name, price, category, description, image } = req.body;\r\n+    const { name, price, category, description } = req.body;\r\n     if (!name || !price) return res.status(400).json({ error: \"name & price required\" });\r\n \r\n-    const newItem = new Menu({ name, price, category, description, image });\r\n+    const newItem = new Menu({ name, price, category, description });\r\n     await newItem.save();\r\n \r\n     res.status(201).json(newItem);\r\n   } catch (err) {\r\n"
+                },
+                {
+                    "date": 1764772194490,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,19 +12,19 @@\n   }\r\n });\r\n \r\n // ADD menu item (admin)\r\n-router.post(\"/\", async (req, res) => {\r\n-  try {\r\n-    const { name, price, category, description } = req.body;\r\n-    if (!name || !price) return res.status(400).json({ error: \"name & price required\" });\r\n+// router.post(\"/\", async (req, res) => {\r\n+//   try {\r\n+//     const { name, price, category, description } = req.body;\r\n+//     if (!name || !price) return res.status(400).json({ error: \"name & price required\" });\r\n \r\n-    const newItem = new Menu({ name, price, category, description });\r\n-    await newItem.save();\r\n+//     const newItem = new Menu({ name, price, category, description });\r\n+//     await newItem.save();\r\n \r\n-    res.status(201).json(newItem);\r\n-  } catch (err) {\r\n-    res.status(500).json({ error: \"Failed to add menu item\" });\r\n-  }\r\n-});\r\n+//     res.status(201).json(newItem);\r\n+//   } catch (err) {\r\n+//     res.status(500).json({ error: \"Failed to add menu item\" });\r\n+//   }\r\n+// });\r\n \r\n module.exports = router;\r\n"
+                },
+                {
+                    "date": 1764772236209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,20 +11,20 @@\n     res.status(500).json({ error: \"Something went wrong\" });\r\n   }\r\n });\r\n \r\n-// ADD menu item (admin)\r\n-// router.post(\"/\", async (req, res) => {\r\n-//   try {\r\n-//     const { name, price, category, description } = req.body;\r\n-//     if (!name || !price) return res.status(400).json({ error: \"name & price required\" });\r\n+ADD menu item (admin)\r\n+router.post(\"/\", async (req, res) => {\r\n+  try {\r\n+    const { name, price, category, description } = req.body;\r\n+    if (!name || !price) return res.status(400).json({ error: \"name & price required\" });\r\n \r\n-//     const newItem = new Menu({ name, price, category, description });\r\n-//     await newItem.save();\r\n+    const newItem = new Menu({ name, price, category, description });\r\n+    await newItem.save();\r\n \r\n-//     res.status(201).json(newItem);\r\n-//   } catch (err) {\r\n-//     res.status(500).json({ error: \"Failed to add menu item\" });\r\n-//   }\r\n-// });\r\n+    res.status(201).json(newItem);\r\n+  } catch (err) {\r\n+    res.status(500).json({ error: \"Failed to add menu item\" });\r\n+  }\r\n+});\r\n \r\n module.exports = router;\r\n"
+                },
+                {
+                    "date": 1764772425745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     res.status(500).json({ error: \"Something went wrong\" });\r\n   }\r\n });\r\n \r\n-ADD menu item (admin)\r\n+// ADD menu item (admin)\r\n router.post(\"/\", async (req, res) => {\r\n   try {\r\n     const { name, price, category, description } = req.body;\r\n     if (!name || !price) return res.status(400).json({ error: \"name & price required\" });\r\n"
+                }
+            ],
+            "date": 1764763454794,
+            "name": "Commit-0",
+            "content": "const express = require(\"express\");\r\nconst router = express.Router();\r\nconst Menu = require(\"../models/Menu\");\r\n\r\n// GET all menu\r\nrouter.get(\"/\", async (req, res) => {\r\n  try {\r\n    const items = await Menu.find().sort({ createdAt: -1 });\r\n    res.json(items);\r\n  } catch (err) {\r\n    res.status(500).json({ error: \"Something went wrong\" });\r\n  }\r\n});\r\n\r\n// ADD menu item (admin)\r\nrouter.post(\"/\", async (req, res) => {\r\n  try {\r\n    const { name, price, category, description, image } = req.body;\r\n    if (!name || !price) return res.status(400).json({ error: \"name & price required\" });\r\n\r\n    const newItem = new Menu({ name, price, category, description, image });\r\n    await newItem.save();\r\n\r\n    res.status(201).json(newItem);\r\n  } catch (err) {\r\n    res.status(500).json({ error: \"Failed to add menu item\" });\r\n  }\r\n});\r\n\r\nmodule.exports = router;\r\n"
+        }
+    ]
+}

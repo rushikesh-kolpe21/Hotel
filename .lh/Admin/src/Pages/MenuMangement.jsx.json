@@ -1,0 +1,30 @@
+{
+    "sourceFile": "Admin/src/Pages/MenuMangement.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1764764228519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764764566899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const API = axios.create({\r\n   baseURL: import.meta.env.VITE_API_URL || \"http://localhost:5000\",\r\n });\r\n \r\n-export default function MenuManagement() {\r\n+export const MenuManagement = () => {\r\n   const [form, setForm] = useState({\r\n     name: \"\",\r\n     price: \"\",\r\n     category: \"\",\r\n"
+                },
+                {
+                    "date": 1764771604590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     name: \"\",\r\n     price: \"\",\r\n     category: \"\",\r\n     description: \"\",\r\n-    image: \"\",\r\n+    // image: \"\",\r\n   });\r\n \r\n   const onChange = (e) =>\r\n     setForm({ ...form, [e.target.name]: e.target.value });\r\n"
+                },
+                {
+                    "date": 1764772190022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,15 +13,15 @@\n     description: \"\",\r\n     // image: \"\",\r\n   });\r\n \r\n-  const onChange = (e) =>\r\n-    setForm({ ...form, [e.target.name]: e.target.value });\r\n+  const onChange = (event) =>\r\n+    setForm({ ...form, [event.target.name]: event.target.value }); //\r\n \r\n-  const onSubmit = async (e) => {\r\n-    e.preventDefault();\r\n+  const onSubmit = async (event) => {\r\n+    event.preventDefault();// stop form submission\r\n     try {\r\n-      await API.post(\"/api/menu\", form);\r\n+      await API.post(\"/api/menu\", form); // \r\n       alert(\"Menu item added!\");\r\n       setForm({ name: \"\", price: \"\", category: \"\", description: \"\", image: \"\" });\r\n     } catch (err) {\r\n       alert(\"Failed to add\");\r\n"
+                }
+            ],
+            "date": 1764764228519,
+            "name": "Commit-0",
+            "content": "import React, { useState } from \"react\";\r\nimport axios from \"axios\";\r\n\r\nconst API = axios.create({\r\n  baseURL: import.meta.env.VITE_API_URL || \"http://localhost:5000\",\r\n});\r\n\r\nexport default function MenuManagement() {\r\n  const [form, setForm] = useState({\r\n    name: \"\",\r\n    price: \"\",\r\n    category: \"\",\r\n    description: \"\",\r\n    image: \"\",\r\n  });\r\n\r\n  const onChange = (e) =>\r\n    setForm({ ...form, [e.target.name]: e.target.value });\r\n\r\n  const onSubmit = async (e) => {\r\n    e.preventDefault();\r\n    try {\r\n      await API.post(\"/api/menu\", form);\r\n      alert(\"Menu item added!\");\r\n      setForm({ name: \"\", price: \"\", category: \"\", description: \"\", image: \"\" });\r\n    } catch (err) {\r\n      alert(\"Failed to add\");\r\n      console.log(err);\r\n    }\r\n  };\r\n\r\n  return (\r\n    <div>\r\n      <h2>Add Menu Item</h2>\r\n      <form onSubmit={onSubmit}>\r\n        <input name=\"name\" value={form.name} onChange={onChange} placeholder=\"Name\" required />\r\n        <input name=\"price\" value={form.price} onChange={onChange} placeholder=\"Price\" required />\r\n        <input name=\"category\" value={form.category} onChange={onChange} placeholder=\"Category\" />\r\n        <input name=\"description\" value={form.description} onChange={onChange} placeholder=\"Description\" />\r\n        <input name=\"image\" value={form.image} onChange={onChange} placeholder=\"Image URL\" />\r\n        <button type=\"submit\">Add</button>\r\n      </form>\r\n    </div>\r\n  );\r\n}\r\n"
+        }
+    ]
+}

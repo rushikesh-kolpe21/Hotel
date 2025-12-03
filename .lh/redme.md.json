@@ -1,0 +1,18 @@
+{
+    "sourceFile": "redme.md",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764772190000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764772190000,
+            "name": "Commit-0",
+            "content": " <!--  starting ka hey \r\n wr1uK6z9gGs5h9Sr\r\n kolperushikesh1121_db_user\r\n\r\n mongodb+srv://<db_username>:<db_password>@clusterhotel.xhexinb.mongodb.net/?appName=ClusterHotel\r\n \r\n now for user cerations pass word and all \r\n\r\nISai2Juu1F83cnfW\r\nRushikesh\r\n\r\nmongodb+srv://Rushikesh:ISai2Juu1F83cnfW@clusterhotel.xhexinb.mongodb.net/?appName=ClusterHotel\r\n\r\n npm i express cors dotenv \r\n \r\n npm i nodemon --save-dev\r\n\r\n 3  npm i mongoose\r\n\r\n \r\n \r\n \r\n npm install axios\r\n\r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n -->"
+        }
+    ]
+}

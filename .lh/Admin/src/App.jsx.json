@@ -1,0 +1,34 @@
+{
+    "sourceFile": "Admin/src/App.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1764764470015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764764571745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import {MenuManagement} from \"./Pages/MenuMangement.jsx\";\n+\n function App() {\n   return (\n     <div>\n       <MenuManagement />\n"
+                },
+                {
+                    "date": 1764764822958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,8 @@\n+import React, { useState } from \"react\";\n+import axios from \"axios\";\n+\n+\n import {MenuManagement} from \"./Pages/MenuMangement.jsx\";\n \n function App() {\n   return (\n"
+                },
+                {
+                    "date": 1764764855916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n-import React, { useState } from \"react\";\n-import axios from \"axios\";\n \n \n+\n import {MenuManagement} from \"./Pages/MenuMangement.jsx\";\n \n function App() {\n   return (\n"
+                },
+                {
+                    "date": 1764772190032,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,5 @@\n \n-\n-\n import {MenuManagement} from \"./Pages/MenuMangement.jsx\";\n \n function App() {\n   return (\n"
+                }
+            ],
+            "date": 1764764470015,
+            "name": "Commit-0",
+            "content": "function App() {\n  return (\n    <div>\n      <MenuManagement />\n    </div>\n  );\n}\n\nexport default App;\n"
+        }
+    ]
+}
