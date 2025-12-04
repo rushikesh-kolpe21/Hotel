@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
     const newItem = new Menu({ name, price, category, description });
     await newItem.save();
 
-    res.status(201).json(newItem);// 
+    // res.status(201).json(newItem);
   } catch (err) {
     res.status(500).json({ error: "Failed to add menu item" });
   }

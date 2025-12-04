@@ -5,7 +5,7 @@ const Menu = require("../Models/Menu");
 // GET all menu
 router.get("/", async (req, res) => {
   try {
-    const items = await Menu.find();
+    const items = await Menu.find().sort({ createdAt: -1 });
     res.json(items);
   } catch (err) {
     res.status(500).json({ error: "Something went wrong" });
@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
     const newItem = new Menu({ name, price, category, description });
     await newItem.save();
 
-    res.status(201).json(newItem);// 
+    res.status(201).json(newItem);
   } catch (err) {
     res.status(500).json({ error: "Failed to add menu item" });
   }

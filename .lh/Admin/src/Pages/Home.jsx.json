@@ -1,0 +1,42 @@
+{
+    "sourceFile": "Admin/src/Pages/Home.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1764783051655,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764783077854,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n export default function Home() {\r\n   const [data, setData] = useState([]);\r\n \r\n   useEffect(() => {\r\n-    fetch(\"http://localhost:5000/items\") // backend ka API call\r\n+    fetch(\"http://localhost:5000//api/menu\") // backend ka API call\r\n       .then(res => res.json())\r\n       .then(result => setData(result))\r\n       .catch(err => console.log(err));\r\n   }, []);\r\n"
+                },
+                {
+                    "date": 1764783096806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n export default function Home() {\r\n   const [data, setData] = useState([]);\r\n \r\n   useEffect(() => {\r\n-    fetch(\"http://localhost:5000//api/menu\") // backend ka API call\r\n+    fetch(\"http://localhost:5000/api/menu\") // backend ka API call\r\n       .then(res => res.json())\r\n       .then(result => setData(result))\r\n       .catch(err => console.log(err));\r\n   }, []);\r\n"
+                },
+                {
+                    "date": 1764783140990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React, { useEffect, useState } from \"react\";\r\n \r\n-export default function Home() {\r\n+export const Home = () => {\r\n   const [data, setData] = useState([]);\r\n \r\n   useEffect(() => {\r\n     fetch(\"http://localhost:5000/api/menu\") // backend ka API call\r\n"
+                },
+                {
+                    "date": 1764783394772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,34 @@\n       <h1>Home Page</h1>\r\n \r\n       {data.map(item => (\r\n         <div key={item._id}>\r\n-          <h3>{item.title}</h3>\r\n+            <h3>{item._id}</h3>\r\n+          <h3>{item.name}</h3>\r\n+          <h3>{item.price}</h3>\r\n+          <h3>{item.category}</h3>\r\n+          <h3>{new Date(item.createdAt).toLocaleString()}</h3>\r\n           <p>{item.description}</p>\r\n         </div>\r\n       ))}\r\n     </div>\r\n   );\r\n }\r\n+\r\n+\r\n+// \r\n+_id\r\n+69302de9ea720d1b7da3385a\r\n+name\r\n+\"pannere\"\r\n+price\r\n+121\r\n+category\r\n+\"veg\"\r\n+description\r\n+\"tasty\"\r\n+createdAt\r\n+2025-12-03T12:32:41.486+00:00\r\n+updatedAt\r\n+2025-12-03T12:32:41.486+00:00\r\n+__v\r\n+0\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764785054185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,31 @@\n+import React, { useEffect, useState } from \"react\";\r\n+\r\n+export const Home = () => {\r\n+  const [data, setData] = useState([]);\r\n+\r\n+  useEffect(() => {\r\n+    fetch(\"http://localhost:5000/api/menu\") // backend ka API call\r\n+      .then((res) => res.json())\r\n+      .then((result) => setData(result))\r\n+      .catch((err) => console.log(err));\r\n+  }, []);\r\n+\r\n+  return (\r\n+    <div>\r\n+      <h1>Home Page</h1>\r\n+\r\n+      {data.map((item) => (\r\n+        <div key={item._id}>\r\n+          <h3>{item._id}</h3>\r\n+          <h3>{item.name}</h3>\r\n+          <h3>{item.price}</h3>\r\n+          <h3>{item.category}</h3>\r\n+          <h3>{new Date(item.createdAt).toLocaleString()}</h3>\r\n+          <p>{item.description}</p>\r\n+        </div>\r\n+      ))}\r\n+    </div>\r\n+  );\r\n+};\r\n+\r\n+//\r\n"
+                },
+                {
+                    "date": 1764785285336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n export const Home = () => {\r\n   const [data, setData] = useState([]);\r\n \r\n   useEffect(() => {\r\n-    fetch(\"http://localhost:5000/api/menu\") // backend ka API call\r\n+    fetch(\"http://localhost:5000/api/menu\")\r\n       .then((res) => res.json())\r\n       .then((result) => setData(result))\r\n       .catch((err) => console.log(err));\r\n   }, []);\r\n@@ -13,67 +13,32 @@\n   return (\r\n     <div>\r\n       <h1>Home Page</h1>\r\n \r\n-      {data.map((item) => (\r\n-        <div key={item._id}>\r\n-          <h3>{item._id}</h3>\r\n-          <h3>{item.name}</h3>\r\n-          <h3>{item.price}</h3>\r\n-          <h3>{item.category}</h3>\r\n-          <h3>{new Date(item.createdAt).toLocaleString()}</h3>\r\n-          <p>{item.description}</p>\r\n-        </div>\r\n-      ))}\r\n+      <table>\r\n+        <thead>\r\n+          <tr>\r\n+            <th>ID</th>\r\n+            <th>Name</th>\r\n+            <th>Price</th>\r\n+            <th>Category</th>\r\n+            <th>Created At</th>\r\n+            <th>Description</th>\r\n+          </tr>\r\n+        </thead>\r\n+\r\n+        <tbody>\r\n+          {data.map((item) => (\r\n+            <tr key={item._id}>\r\n+              <td>{item._id}</td>\r\n+              <td>{item.name}</td>\r\n+              <td>{item.price}</td>\r\n+              <td>{item.category}</td>\r\n+              <td>{new Date(item.createdAt).toLocaleString()}</td>\r\n+              <td>{item.description}</td>\r\n+            </tr>\r\n+          ))}\r\n+        </tbody>\r\n+      </table>\r\n     </div>\r\n   );\r\n };\r\n-\r\n-//\r\n-import React, { useEffect, useState } from \"react\";\r\n-\r\n-export const Home = () => {\r\n-  const [data, setData] = useState([]);\r\n-\r\n-  useEffect(() => {\r\n-    fetch(\"http://localhost:5000/api/menu\") // backend ka API call\r\n-      .then(res => res.json())\r\n-      .then(result => setData(result))\r\n-      .catch(err => console.log(err));\r\n-  }, []);\r\n-\r\n-  return (\r\n-    <div>\r\n-      <h1>Home Page</h1>\r\n-\r\n-      {data.map(item => (\r\n-        <div key={item._id}>\r\n-            <h3>{item._id}</h3>\r\n-          <h3>{item.name}</h3>\r\n-          <h3>{item.price}</h3>\r\n-          <h3>{item.category}</h3>\r\n-          <h3>{new Date(item.createdAt).toLocaleString()}</h3>\r\n\\ No newline at end of file\n-          <p>{item.description}</p>\r\n-        </div>\r\n-      ))}\r\n-    </div>\r\n-  );\r\n-}\r\n-\r\n-\r\n-// \r\n-_id\r\n-69302de9ea720d1b7da3385a\r\n-name\r\n-\"pannere\"\r\n-price\r\n-121\r\n-category\r\n-\"veg\"\r\n-description\r\n-\"tasty\"\r\n-createdAt\r\n-2025-12-03T12:32:41.486+00:00\r\n-updatedAt\r\n-2025-12-03T12:32:41.486+00:00\r\n-__v\r\n-0\n"
+                }
+            ],
+            "date": 1764783051655,
+            "name": "Commit-0",
+            "content": "import React, { useEffect, useState } from \"react\";\r\n\r\nexport default function Home() {\r\n  const [data, setData] = useState([]);\r\n\r\n  useEffect(() => {\r\n    fetch(\"http://localhost:5000/items\") // backend ka API call\r\n      .then(res => res.json())\r\n      .then(result => setData(result))\r\n      .catch(err => console.log(err));\r\n  }, []);\r\n\r\n  return (\r\n    <div>\r\n      <h1>Home Page</h1>\r\n\r\n      {data.map(item => (\r\n        <div key={item._id}>\r\n          <h3>{item.title}</h3>\r\n          <p>{item.description}</p>\r\n        </div>\r\n      ))}\r\n    </div>\r\n  );\r\n}\r\n"
+        }
+    ]
+}

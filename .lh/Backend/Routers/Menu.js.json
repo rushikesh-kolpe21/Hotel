@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 14,
             "patches": [
                 {
                     "date": 1764763454794,
@@ -28,6 +28,42 @@
                 {
                     "date": 1764772425745,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     res.status(500).json({ error: \"Something went wrong\" });\r\n   }\r\n });\r\n \r\n-ADD menu item (admin)\r\n+// ADD menu item (admin)\r\n router.post(\"/\", async (req, res) => {\r\n   try {\r\n     const { name, price, category, description } = req.body;\r\n     if (!name || !price) return res.status(400).json({ error: \"name & price required\" });\r\n"
+                },
+                {
+                    "date": 1764782023798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   } catch (err) {\r\n     res.status(500).json({ error: \"Something went wrong\" });\r\n   }\r\n });\r\n-\r\n+12\r\n // ADD menu item (admin)\r\n router.post(\"/\", async (req, res) => {\r\n   try {\r\n     const { name, price, category, description } = req.body;\r\n"
+                },
+                {
+                    "date": 1764782244031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,4 +27,5 @@\n   }\r\n });\r\n \r\n module.exports = router;\r\n+\r\n"
+                },
+                {
+                    "date": 1764785125118,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   } catch (err) {\r\n     res.status(500).json({ error: \"Something went wrong\" });\r\n   }\r\n });\r\n-12\r\n+\r\n // ADD menu item (admin)\r\n router.post(\"/\", async (req, res) => {\r\n   try {\r\n     const { name, price, category, description } = req.body;\r\n"
+                },
+                {
+                    "date": 1764785859381,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n // ADD menu item (admin)\r\n router.post(\"/\", async (req, res) => {\r\n   try {\r\n     const { name, price, category, description } = req.body;\r\n-    if (!name || !price) return res.status(400).json({ error: \"name & price required\" });\r\n+    // if (!name || !price) return res.status(400).json({ error: \"name & price required\" });\r\n \r\n     const newItem = new Menu({ name, price, category, description });\r\n     await newItem.save();\r\n \r\n"
+                },
+                {
+                    "date": 1764785874908,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \r\n     const newItem = new Menu({ name, price, category, description });\r\n     await newItem.save();\r\n \r\n-    res.status(201).json(newItem);\r\n+    // res.status(201).json(newItem);\r\n   } catch (err) {\r\n     res.status(500).json({ error: \"Failed to add menu item\" });\r\n   }\r\n });\r\n"
+                },
+                {
+                    "date": 1764785888388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n // GET all menu\r\n router.get(\"/\", async (req, res) => {\r\n   try {\r\n-    const items = await Menu.find().sort({ createdAt: -1 });\r\n+    const items = await Menu.find();\r\n     res.json(items);\r\n   } catch (err) {\r\n     res.status(500).json({ error: \"Something went wrong\" });\r\n   }\r\n"
+                },
+                {
+                    "date": 1764785956610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n // GET all menu\r\n router.get(\"/\", async (req, res) => {\r\n   try {\r\n-    const items = await Menu.find();\r\n+    const items = await Menu.find().sort({ createdAt: -1 });\r\n     res.json(items);\r\n   } catch (err) {\r\n     res.status(500).json({ error: \"Something went wrong\" });\r\n   }\r\n"
+                },
+                {
+                    "date": 1764786018885,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n // GET all menu\r\n router.get(\"/\", async (req, res) => {\r\n   try {\r\n-    const items = await Menu.find().sort({ createdAt: -1 });\r\n+    const items = await Menu.find();\r\n     res.json(items);\r\n   } catch (err) {\r\n     res.status(500).json({ error: \"Something went wrong\" });\r\n   }\r\n"
+                },
+                {
+                    "date": 1764786153596,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \r\n     const newItem = new Menu({ name, price, category, description });\r\n     await newItem.save();\r\n \r\n-    // res.status(201).json(newItem);\r\n+    res.status(201).json(newItem);\r\n   } catch (err) {\r\n     res.status(500).json({ error: \"Failed to add menu item\" });\r\n   }\r\n });\r\n"
                 }
             ],
             "date": 1764763454794,
